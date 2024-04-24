@@ -19,11 +19,11 @@
 	<div class="border h-1/16 w-full rounded-lg p-1">L2</div>
 	{/each}
 </div>
-<div class="h-full w-1/4 overflow-auto border">
+<div class="h-full w-1/4 overflow-auto ">
 	<!-- Number of lines in L1 -->
     {#each new Array(128) as _, index}
-    <div class="border h-1/16 w-fit rounded-lg p-1 flex flex-row">
-		<div>L1</div>
+    <div class="border h-1/16 w-full rounded-lg p-1 flex flex-row">
+		L1
 		<!-- {#each new Array(64) as _, index}
 		<div class="">0</div>
 		{/each} -->
