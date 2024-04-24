@@ -23,9 +23,10 @@
 	<!-- Number of lines in L1 -->
     {#each new Array(128) as _, index}
     <div class="border h-1/16 w-fit rounded-lg p-1 flex flex-row">
-		{#each new Array(64) as _, index}
+		<div>L1</div>
+		<!-- {#each new Array(64) as _, index}
 		<div class="">0</div>
-		{/each}
+		{/each} -->
 	</div>
     {/each}
 	<br />
