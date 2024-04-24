@@ -3,7 +3,8 @@
 	 * @type {string}
 	 */
 	let option;
-	console.log("hello")
+	let memory = {}
+	let caches = {}
 </script>
 <div class="flex flex-row h-full gap-5 p-5">
 <div class="h-full w-1/4">
@@ -18,10 +19,14 @@
 	<div class="border h-1/16 w-full rounded-lg p-1">L2</div>
 	{/each}
 </div>
-<div class="h-full w-1/4">
+<div class="h-full w-1/4 overflow-auto border">
 	<!-- Number of lines in L1 -->
     {#each new Array(128) as _, index}
-      <div class="border h-1/16 w-full rounded-lg p-1">L1</div>
+    <div class="border h-1/16 w-fit rounded-lg p-1 flex flex-row">
+		{#each new Array(64) as _, index}
+		<div class="">0</div>
+		{/each}
+	</div>
     {/each}
 	<br />
 	<div>
