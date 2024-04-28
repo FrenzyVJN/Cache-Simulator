@@ -10,10 +10,10 @@
 	const memory = Array.from({ length: memory_lines }, () =>
 		Array.from({ length: 64 }, () => Math.floor(Math.random() * 9) + 1)
 	);
-
+	let l2_temp = Array.from({ length: l2_cache_lines }, () => Array(64).fill(0));;
 	// Initializing cache arrays with zeros
-	let l1 = Array.from({ length: l1_cache_lines }, () => Array(64).fill(0));
 	let l2 = Array.from({ length: l2_cache_lines }, () => Array(64).fill(0));
+	let l1 = Array.from({ length: l1_cache_lines }, () => Array(64).fill(0));
 	let victim_cache = Array.from({ length: l1_victim_cache_lines }, () => Array(64).fill(0));
 	// Tracking access history for LRU replacement in victim cache
 	const lru_tracker = [];
@@ -79,16 +79,16 @@
 		const data = memory[parseInt(address, 2) >> 6];
 		let changed = 0;
 		for (let i = 0; i < 4; i++) {
-			if (JSON.stringify(l2[line + i]) !== JSON.stringify(Array(64).fill(0))) {
-				l2[line + i] = [...data];
+			if (JSON.stringify(l2[line % 256]) !== JSON.stringify(Array(64).fill(0))) {
+				l2[line % 256] = [...memory[line]];
 				changed = 1;
 			}
 		}
 		if (!changed) {
 			l2.splice(line, 1, ...Array(1).fill([...data]));
 		}
+		l2_temp = l2;
 	}
-
 	// Function to read data from victim cache
 	function victim_cache_read(address, adr) {
 		const index = adr.indexOf(parseInt(address, 2));
@@ -134,7 +134,6 @@
 	
 		if (address.length === 16 && /^[01]+$/.test(address)) {
 			processAddress(address);
-			console.log(l1[0]);
 			console.log(l2[0]);
 		} else {
 			alert('Invalid address. Please enter a 16-bit binary number.');
@@ -156,6 +155,7 @@
 			console.log('L1 CACHE MISS', ' ');
 			l1_misses++;
 			l1_write(address); // If miss, write data to L1 cache
+
 
 			// Check if data is in victim cache
 			const vcache_hit = victim_cache_check(address, adr);
@@ -184,8 +184,10 @@
 			}
 		}
 		console.log();
-		//   updateCacheDisplay(); // Update cache display after each iteration
 		console.log();
+
+
+
 	}
 </script>
 
@@ -197,7 +199,7 @@
 	{/each}
 	</div>
 	<div class="h-full w-1/4">
-		{#each l2 as line, index}
+		{#each l2_temp as line, index}
 			<div class="border h-1/16 w-full rounded-lg p-1 overflow-auto">
 				{line}
 			</div>
