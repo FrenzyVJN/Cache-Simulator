@@ -195,7 +195,7 @@
       const victimCacheDisplay = document.getElementById('victim-cache');
       const l2CacheDisplay = document.getElementById('l2-cache');
     
-      // Update cache display content based on cache arrays
+      // // Update cache display content based on cache arrays
       l1CacheDisplay.innerHTML = "<h3>L1 Cache:</h3>";
       for (let i = 0; i < l1_cache_lines; i++) {
         l1CacheDisplay.innerHTML += `<p>Line ${i}: ${JSON.stringify(l1[i])}</p>`;
