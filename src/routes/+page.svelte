@@ -194,11 +194,13 @@
 <div class="flex flex-row h-full gap-5 p-5">
 	<div class="h-full w-1/4">
 	<!-- Number of lines in Main Memory -->
+	<div class="flex justify-center font-bold text-3xl mb-5">Memory</div>
 	{#each memory as line, index}
 		<div class=" h-1/16 border rounded-lg w- flex justify-center items-center p-1 overflow-auto">{line}</div>
 	{/each}
 	</div>
 	<div class="h-full w-1/4">
+		<div class="flex justify-center font-bold text-3xl mb-5">L2</div>
 		{#each l2_temp as line, index}
 			<div class="border h-1/16 w-full rounded-lg p-1 overflow-auto">
 				{line}
@@ -215,6 +217,7 @@
 		{/each} -->
 			<!-- </div> -->
 		<!-- {/each} -->
+		<div class="flex justify-center font-bold text-3xl mb-5">L1</div>
 		<div>
 		{#each l1 as line, index}
 			<div class="border h-1/16 w-full rounded-lg p-1 overflow-auto">
@@ -236,7 +239,8 @@
 		</div>
 	</div>
 	<div class="w-1/4">
-		<div class="h-96 border rounded-lg">
+		<div class="text-3xl font-bold flex justify-center mb-5">Processor</div>
+		<div class="h-fit py-4  border rounded-lg">
 			<div class="mt-16 flex justify-center">
 				<div class="flex mr-5">Store</div>
 				<input type="text" class="bg-white bg-opacity-20 rounded-lg" bind:value={address} maxlength="16" />
@@ -245,12 +249,18 @@
 				<button class="border rounded-lg p-1 bg-blue-800 bg-opacity-20" on:click={manualInput}>Write</button>
 			</div>
 			<div class="h-10 mt-10 px-2 flex">
-				<div class="border rounded-l-lg h-full w-1/3"></div>
-				<div class="border h-full w-1/3"></div>
-				<div class="border rounded-r-lg h-full w-1/3"></div>
+				<div class="border rounded-l-lg h-full w-1/3">{address.slice(0,2)}</div>
+				<div class="border h-full w-1/3">{address.slice(2,8)}</div>
+				<div class="border rounded-r-lg h-full w-1/3">{address.slice(8,16)}</div>
 			</div>
-			<div class="px-2 mt-2">
-				<div class="border rounded-lg px-2 flex justify-center pb-20">Information</div>
+			<div class="px-2 mt-2 py-2">
+				<div class="border rounded-lg px-2 flex justify-center flex-col">Information
+					<div class="border rounded-lg px-2 flex justify-center">L1 Hits: {l1_hits}</div>
+					<div class="border rounded-lg px-2 flex justify-center">L1 Misses: {l1_misses}</div>
+					<div class="border rounded-lg px-2 flex justify-center">L2 Hits: {l2_hits}</div>
+					<div class="border rounded-lg px-2 flex justify-center">L2 Misses: {l2_misses}</div>
+	
+				</div>
 			</div>
 		</div>
 	</div>
