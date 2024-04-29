@@ -130,6 +130,12 @@
 	}
 
 	// Function to simulate processor operations
+	function generateRandomAddress() {
+	const randaddress =  Math.floor(Math.random()*65536).toString(2).padStart(16, '0');
+	processAddress(randaddress);
+	console.log(randaddress);
+	}
+
 	function manualInput() {
 	
 		if (address.length === 16 && /^[01]+$/.test(address)) {
@@ -183,6 +189,7 @@
 				}
 			}
 		}
+		
 		console.log();
 		console.log();
 
@@ -247,6 +254,9 @@
 			</div>
 			<div class="pt-10 flex justify-center">
 				<button class="border rounded-lg p-1 bg-blue-800 bg-opacity-20" on:click={manualInput}>Write</button>
+			</div>
+			<div class="pt-3 flex justify-center">
+				<button class="border rounded-lg p-1 bg-blue-800 bg-opacity-20" on:click={generateRandomAddress}>Random</button>
 			</div>
 			<div class="h-10 mt-10 px-2 flex">
 				<div class="border rounded-l-lg h-full w-1/3">{address.slice(0,2)}</div>
