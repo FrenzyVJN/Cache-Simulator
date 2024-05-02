@@ -4,8 +4,8 @@
 This Cache Simulator project was developed as part of the Computer Organization and Architecture (COA) course in our first year at college. The aim of this project was to implement a cache simulator in order to understand the fundamentals of memory hierarchies, caching mechanisms, and their impact on computer performance.
 
 ### Team Members
-- Vijayan Sankar
-- Dharaneesh
+- Vijayan Sankar [FrenzyVJN]
+- Dharaneesh [Apex007]
 - Sukhirthan A
 
 ### Project Overview
