@@ -24,7 +24,7 @@ To use the Cache Simulator, follow these steps:
    ```
    git clone https://github.com/FrenzyVJN/Cache-Simulator.git
    ```
-2. **Access the Simulator**: Navigate to the project directory and install the necessary dependencies by executing the command:
+2. **Access the Simulator**: Navigate to the project directory (```cd Cache-Simulator```) and install the necessary dependencies by executing the command:
    ```
    npm install
    ```
