@@ -24,7 +24,14 @@ To use the Cache Simulator, follow these steps:
    ```
    git clone https://github.com/FrenzyVJN/Cache-Simulator.git
    ```
-2. **Open the Simulator**: Navigate to the project directory and open the `index.html` file in a web browser to access the Cache Simulator.
+2. **Access the Simulator**: Navigate to the project directory and install the necessary dependencies by executing the command:
+   ```
+   npm install
+   ```
+   Then, start the simulator by running:
+   ```
+   npm run dev
+   ```
 3. **Input Generation**: Generate random memory addresses by clicking the "Random" button or manually input addresses in binary format.
 4. **Simulation**: Upon inputting an address, the simulator processes the address and simulates cache operations, displaying cache hits, misses, and accessed data.
 5. **Analysis**: Analyze the displayed statistics to understand cache performance and behavior under different memory access patterns.
